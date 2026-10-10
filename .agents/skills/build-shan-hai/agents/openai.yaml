@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Shan Hai"
+  short_description: "Build and verify the Shan Hai 3D game"
+  default_prompt: "Use $build-shan-hai to continue the current Shan Hai development milestone and verify the playable 3D scene."
