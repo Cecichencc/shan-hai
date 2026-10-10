@@ -82,7 +82,9 @@ function Flowers() {
   const bushes = useRef<THREE.InstancedMesh>(null), petals = useRef<THREE.InstancedMesh>(null), centers = useRef<THREE.InstancedMesh>(null);
   useLayoutEffect(() => {
     const dummy = new THREE.Object3D(); let p = 0, c = 0, b = 0;
-    for (const [x, z, scale] of BEDS) {
+    for (const [x, bedZ, scale] of BEDS) {
+      const streamZ = STREAM_CENTER(x);
+      const z = Math.abs(bedZ - streamZ) < 3.1 ? streamZ + (bedZ < streamZ ? -3.1 : 3.1) : bedZ;
       for (let k = 0; k < 4; k++) {
         const a = k * 2.4, xx = x + Math.cos(a) * .40 * scale, zz = z + Math.sin(a) * .35 * scale;
         dummy.position.set(xx, terrainHeight(xx, zz) + .29 * scale, zz); dummy.scale.set(.51 * scale, (.36 + k % 2 * .1) * scale, .47 * scale); dummy.rotation.set(0, a, 0); dummy.updateMatrix();

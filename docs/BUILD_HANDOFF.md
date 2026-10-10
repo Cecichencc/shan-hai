@@ -12,14 +12,16 @@ The user made `Cecichencc/shan-hai` public and explicitly authorized the `develo
 
 ## Garden rebuild verification
 
-Local checks: 14 tests pass, including GLB anatomy/size, bag removal, the sampled spawn-to-Dijiang route, river boundaries, bridge elevation, moon-gate opening and fallback handling. TypeScript syntax parsing passes. The hosted workflow runs dependency installation, the full tests, TypeScript checking, Vite build and Pages deployment. Record the final hosted visual/playthrough evidence after it completes.
+Local checks: 14 tests pass, including GLB anatomy/size, bag removal, the sampled spawn-to-Dijiang route, river boundaries, bridge elevation, moon-gate opening and fallback handling. TypeScript syntax parsing passes. Hosted Actions runs [38052895069](https://github.com/Cecichencc/shan-hai/actions/runs/38052895069) and [38053103206](https://github.com/Cecichencc/shan-hai/actions/runs/38053103206) passed dependency installation, all 14 tests, TypeScript, Vite and Pages deployment.
+
+Browser evidence: the actual React scene renders the new GLBs, shadows, bridge, pavilion and moon gate. Keyboard traversal crossed the bridge and reached Dijiang; Meet opened and closed. A 390 × 844 desktop browser viewport check verified visible controls, joystick movement and release, Map open/close and paused walking. The lighting/foliage refinement was inspected live. A final scenery-only fix places flower beds outside the stream after increasing its curvature.
 
 The standalone HTML embeds the updated character assets but retains earlier procedural scenery. Use the React app for the approved garden review.
 
 ## Remaining milestone gates
 
-- Review the newly deployed garden in the browser, including bridge crossing, Meet, Map and restart.
-- Check narrow-screen controls and touch release/cancellation.
+- Ask for user visual feedback on the live garden; generated concept images remain targets rather than exact runtime guarantees.
+- Test touch cancellation and safe areas on a real device; pointer release in a desktop viewport is only a partial check.
 - Test on an actual iPhone in Safari; record device/browser, loading, responsiveness and sustained rendering. A desktop viewport simulation does not satisfy this gate.
 - Combat, recruitment, collection and saving are outside this milestone. Starter selection and defeat persistence remain proposals.
 
