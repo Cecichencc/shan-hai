@@ -22,10 +22,15 @@ function CameraAndMovement({ move, onNear, resetToken }: {move: React.RefObject<
   });
   return <Traveler position={player} moving={moving}/>;
 }
-export default function ValleyScene({move,onNear,resetToken}:{move:React.RefObject<MoveVector>;onNear:(v:boolean)=>void;resetToken:number}){
+function FirstFrameReady({ onReady }: { onReady: () => void }) {
+  const frames = useRef(0);
+  useFrame(() => { if (++frames.current === 3) onReady(); });
+  return null;
+}
+export default function ValleyScene({move,onNear,resetToken,onReady}:{move:React.RefObject<MoveVector>;onNear:(v:boolean)=>void;resetToken:number;onReady:()=>void}){
   return <Canvas dpr={[1,1.5]} camera={{position:[16,12,41],fov:50,near:.1,far:200}} gl={{antialias:true,powerPreference:'high-performance'}}>
     <color attach="background" args={[COLORS.sky]}/><fog attach="fog" args={[COLORS.sky,70,155]}/>
     <ambientLight intensity={1.45}/><directionalLight intensity={1.6} position={[-20,40,30]}/>
-    <WorldObjects/><Dijiang/><CameraAndMovement move={move} onNear={onNear} resetToken={resetToken}/>
+    <WorldObjects/><Dijiang/><CameraAndMovement move={move} onNear={onNear} resetToken={resetToken}/><FirstFrameReady onReady={onReady}/>
   </Canvas>;
 }

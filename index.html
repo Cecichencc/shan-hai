@@ -1,1 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#86c7c7"/><meta name="description" content="Explore the mythical Shan Hai world — Phase 0 3D development preview."/><title>山海经 — Shan Hai | Dancing Valley</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#b7deda" />
+  <title>山海经 · Shan Hai — Dancing Valley</title>
+  <style>
+    html,body{margin:0;min-height:100%;background:#a8d6da}
+    .boot-scene{min-height:100dvh;position:relative;display:flex;justify-content:center;align-items:end;background:linear-gradient(#c9e9e999,#bbe9bf22),url('%BASE_URL%fallback-world.webp') center/cover no-repeat}
+    .boot-scene span{margin:0 20px max(24px,env(safe-area-inset-bottom));padding:12px 18px;background:#fffaf0ea;border-radius:16px;font:700 13px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#426f62;text-align:center}
+  </style>
+</head>
+<body>
+  <div id="root"><div class="boot-scene"><span>山海经 · Dancing Valley — Starting your world…<br />If this scene does not become interactive, open the hosted game in Safari.</span></div></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

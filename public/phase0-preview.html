@@ -78,6 +78,7 @@ let inRange=Math.hypot(player.x-8,player.z+22)<8;if(near!==inRange){near=inRange
 if(!document.body.classList.contains('scene-ready')&&!gl.isContextLost()&&gl.getError()===gl.NO_ERROR){document.body.classList.add('scene-ready');}requestAnimationFrame(frame)}
 canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();document.body.classList.remove('scene-ready');document.body.classList.add('no-webgl');let err=document.getElementById('err');err.style.display='block';err.textContent='3D graphics were interrupted. Open the hosted game in Safari or reload.'});
 requestAnimationFrame(frame);
+window.setTimeout(()=>{if(!document.body.classList.contains('scene-ready')){document.body.classList.add('no-webgl');let err=document.getElementById('err');err.style.display='block';err.textContent='3D rendering did not start. This viewer can display the scene artwork; use Safari for the interactive hosted version.';}},8000);
 } catch(error) { document.body.classList.remove('scene-ready');document.body.classList.add('no-webgl');const err=document.getElementById('err');err.style.display='block';err.textContent='3D could not start: '+(error&&error.message?error.message:'unknown rendering error');console.error('Shan Hai WebGL initialization failed',error); }
 })();
 </script>
