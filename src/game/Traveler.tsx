@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-/** Modern playable human: short hair, white T-shirt, dark shorts, trainers and a little sage bag. */
+/** Modern playable human: short hair, white T-shirt, dark shorts, trainers, without a bag or strap. */
 export default function Traveler({ position, moving, direction }: {
   position: React.RefObject<THREE.Vector3>;
   moving: React.RefObject<boolean>;

@@ -1,7 +1,7 @@
 import { REGION } from './constants.ts';
 
-export const STREAM_CENTER = (x: number) => 1.8 + Math.sin(x * .18) * 1.05;
-export const PATH_CENTER = (z: number) => 2.8 - 4.8 * Math.exp(-((z - 1.4) ** 2) / 23);
+export const STREAM_CENTER = (x: number) => 1.8 + Math.sin(x * .18) * 2.2;
+export const PATH_CENTER = (z: number) => 2.8 - 4.8 * Math.exp(-(((z - 1.4) / 7) ** 4));
 export const BRIDGE_X = -2;
 export const BRIDGE_Z = STREAM_CENTER(BRIDGE_X);
 export const terrainHeight = (x: number, z: number) => Math.sin(x * .16) * Math.cos(z * .19) * .055;
@@ -12,7 +12,9 @@ export function bridgeHeight(x: number, z: number) {
 export const TREES: Array<[number, number, number, boolean]> = [
   [-9, 9, 1.12, true], [9, 12, 1.04, true], [-9.4, -4.8, 1.13, true],
   [-4.8, -10.2, 1.05, true], [12.5, -5.5, 1.12, true],
-  [-12, 2.9, .90, false], [9.4, -14, .95, false],
+  [-12, 3.2, 1.04, false], [9.4, -14, 1.15, false],
+  [-13, 13.8, 1.2, false], [14, 9.8, 1.16, true], [-13, -11.5, 1.3, false],
+  [1.7, -13.3, 1.05, true], [-1.8, 16.8, 1.15, false],
 ];
 export const ROCKS: Array<[number, number, number]> = [
   [-7.5, 3.8, .95], [-10.3, -.8, 1.1], [-5.9, -1.8, .68], [1.3, 4.8, .64],

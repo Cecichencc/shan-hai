@@ -74,8 +74,8 @@ export default function ValleyScene({ move, onNear, resetToken, onReady, near = 
     gl={{ antialias: true, alpha: false, powerPreference: 'low-power', toneMapping: THREE.ACESFilmicToneMapping }}
     onCreated={({ gl }) => { gl.setClearColor(COLORS.sky); gl.toneMappingExposure = 1; gl.shadowMap.type = THREE.PCFSoftShadowMap; }}>
     <color attach="background" args={[COLORS.sky]} /><fog attach="fog" args={[COLORS.sky, 60, 108]} />
-    <hemisphereLight args={['#fff7e7', '#a1b89c', 1.1]} />
-    <directionalLight position={[-12, 24, 15]} intensity={2.4} color="#fff3d8" castShadow
+    <hemisphereLight args={['#ffffff', '#b7cca4', 1.3]} />
+    <directionalLight position={[-12, 24, 15]} intensity={2.1} color="#ffffff" castShadow
       shadow-mapSize={[2048, 2048]} shadow-camera-left={-25} shadow-camera-right={25}
       shadow-camera-top={24} shadow-camera-bottom={-24} shadow-camera-near={1} shadow-camera-far={75}
       shadow-normalBias={.035} shadow-bias={-.0002} shadow-radius={3} />

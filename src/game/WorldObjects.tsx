@@ -65,8 +65,8 @@ function Tree({ entry }: { entry: typeof TREES[number] }) {
     <Branch a={[0, 0, 0]} b={[.15, 2.5, -.06]} radius={.32} />
     <Branch a={[.05, 1.2, 0]} b={[-.9, 2.7, .02]} radius={.20} />
     <Branch a={[.1, 1.8, 0]} b={[.8, 3, -.17]} radius={.19} />
-    {crowns.map(([cx, cy, cz, size], i) => <mesh key={i} position={[cx, cy, cz]} scale={[size, size * .79, size * .92]} castShadow receiveShadow>
-      <icosahedronGeometry args={[1, 2]} /><meshStandardMaterial color={pink ? (i % 2 ? COLORS.blossom : COLORS.paleBlossom) : (i % 2 ? COLORS.leaf : COLORS.leafLight)} roughness={1} />
+    {crowns.map(([cx, cy, cz, size], i) => <mesh key={i} position={[cx, cy, cz]} scale={[size * 1.22, size * .90, size * 1.13]} castShadow receiveShadow>
+      <icosahedronGeometry args={[1, 2]} /><meshStandardMaterial color={pink ? (i % 2 ? COLORS.blossom : COLORS.paleBlossom) : (i % 2 ? COLORS.leaf : COLORS.leafLight)} roughness={1} flatShading />
     </mesh>)}
   </group>;
 }
@@ -75,6 +75,8 @@ const BEDS: Array<[number, number, number]> = [
   [-5, -2, .9], [-6.9, -5.1, 1], [-.6, -8.1, .9], [5.6, -8, .8],
   [10.9, -11.5, .9], [13.7, -3.1, 1.1], [7.5, -.3, .9], [-10.6, -.8, .7],
   [-11.5, 5.2, 1.1], [11.6, 8.1, 1.0], [-4.3, -12.2, 1.0],
+  [-8.4, 6.1, 1.3], [-7.4, -2.8, 1.15], [6.5, 2.5, 1.3], [10.5, 3.5, 1.15],
+  [-2.6, 10.7, 1.2], [4.9, 10.5, 1.0], [-1.2, -11.8, 1.2], [13.0, -12.9, 1.15],
 ];
 function Flowers() {
   const bushes = useRef<THREE.InstancedMesh>(null), petals = useRef<THREE.InstancedMesh>(null), centers = useRef<THREE.InstancedMesh>(null);
