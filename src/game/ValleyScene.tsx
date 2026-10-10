@@ -17,7 +17,7 @@ function CameraAndMovement({ move, onNear, resetToken }: {move: React.RefObject<
     const z=Number(key.has('s')||key.has('arrowdown'))-Number(key.has('w')||key.has('arrowup'))+move.current.z;
     const magnitude=Math.hypot(x,z);moving.current=magnitude>.07;
     if(moving.current){const velocity=key.has('shift')?12:8;player.current.x+=x/Math.max(1,magnitude)*dt*velocity;player.current.z+=z/Math.max(1,magnitude)*dt*velocity;player.current.x=THREE.MathUtils.clamp(player.current.x,REGION.bounds.minX,REGION.bounds.maxX);player.current.z=THREE.MathUtils.clamp(player.current.z,REGION.bounds.minZ,REGION.bounds.maxZ);}
-    const desired = new THREE.Vector3(player.current.x+13,12,player.current.z+19);camera.position.lerp(desired,Math.min(1,dt*3));camera.lookAt(player.current.x,1.4,player.current.z-9);
+    const desired = new THREE.Vector3(player.current.x+(window.innerWidth<680?5:13),12,player.current.z+19);camera.position.lerp(desired,Math.min(1,dt*3));camera.lookAt(player.current.x,1.4,player.current.z-9);
     elapsed.current+=dt;if(elapsed.current>.2){elapsed.current=0;const near=Math.hypot(player.current.x-REGION.dijiang[0],player.current.z-REGION.dijiang[2])<REGION.encounterDistance;if(near!==wasNear.current){wasNear.current=near;onNear(near)}}
   });
   return <Traveler position={player} moving={moving}/>;

@@ -7,3 +7,8 @@
 .world-canvas--ready{opacity:1;pointer-events:auto}
 .graphics-status{position:fixed;z-index:8;bottom:max(25px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:#fffbf0f5;border:1px solid #ffffffb5;border-radius:16px;padding:12px 16px;box-shadow:0 10px 30px #36695d47;color:#4b7265;font-size:12px;line-height:1.45;text-align:center;width:min(88vw,360px);font-weight:750}
 @media(max-width:720px){.phase-label{font-size:8px;padding:8px 10px}.quest{top:98px;max-width:205px;padding:10px 12px}.quest strong{font-size:13px}.quest span{font-size:10px}}
+
+/* Keep controls above WebGL on mobile. */
+.game-header,.quest{z-index:4}
+.game-bottom,.keyboard-hint{z-index:5}
+.dialog-backdrop{z-index:12}

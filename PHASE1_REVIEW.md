@@ -19,8 +19,8 @@ Rounded hills, water, stone trail, modular Chinese pavilion, stylized trees, whi
 
 ## Validation
 
-- Node test suite: five tests passing (the WebGL renderer test uses a mocked graphics context; it does **not** establish visual compatibility on an iPhone).
-- Headless Chromium tested with JavaScript disabled and with WebGL unavailable: the fallback scenery remained visible in both cases.
+- Node test suite: six tests passing (the WebGL renderer test uses a mocked graphics context; it does **not** establish visual compatibility on an iPhone).
+- Chromium tested with JavaScript disabled and without WebGL: fallback scenery remained visible. Software WebGL tests also confirmed visible 3D scenery at desktop and mobile viewport sizes. A mobile-sized interaction test confirmed the joystick is the topmost touch target, and approaching Dijiang displays the encounter button. Real iPhone Safari remains unverified.
 - Actual iOS Safari WebGL rendering: **not verified in this environment**.
 - React dependency install / production build: **not verified locally**, since dependencies cannot be downloaded here. GitHub Actions should run the install and build once the new changes are pushed.
 

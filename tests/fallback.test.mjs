@@ -13,3 +13,8 @@ test('interactive joystick stays hidden until WebGL draws the first frame',()=>{
   assert.match(html,/.scene-ready .bottom\{display:flex!important\}/);
   assert.match(html,/gl\.getError\(\)===gl\.NO_ERROR/);
 });
+
+test('mobile controls stay in front of WebGL',()=>{
+  assert.match(html, /#scene\{[^}]*z-index:1/);
+  assert.match(html, /\.bottom,\.tip\{z-index:4\}/);
+});
