@@ -12,10 +12,11 @@ A friendly, pastel, Chinese-mythology-inspired creature-collecting adventure. St
 - ✅ Provisional **帝江 / Dijiang** procedural creature: entirely faceless, six short legs, four orange wings
 - ✅ WASD / arrow controls; mobile touch joystick; restart; proximity interaction placeholder
 - ✅ Mobile-safe-area UI, loading-friendly lightweight geometry, versioned project conventions
-- ✅ GitHub Actions Pages workflow prepared (not activated)
+- ✅ GitHub Actions Pages workflow committed (enable the Pages source in Settings)
 - ✅ Separate **dependency-free WebGL demo** at [`preview/index.html`](preview/index.html) for viewing before npm installation
 - ⏳ React/Vite package installation and actual build verification (this workspace cannot reach npm registry)
-- ⏳ A separate GitHub repository and hosted development Pages URL (the connected GitHub tools do not expose repository creation)
+- ✅ Repository created and source committed to `Cecichencc/shan-hai` on `main`
+- ⏳ Hosted GitHub Pages development link pending Pages enablement and successful workflow run
 - ⏳ Actual encounter battle, collection, proper art/rigging and polished collision (scheduled for later phases)
 
 **No user production app, Vercel project, or existing repo has been modified.**
@@ -46,17 +47,21 @@ npm run build  # TypeScript compile and Vite build, once dependencies are instal
 
 The Phase 0 collider is only a simple level boundary. Water, trees, and the pavilion are currently visual geometry, not complete physics colliders. Proper connected walkable surfaces and collision are a **Phase 1** acceptance item.
 
-## Publish a development preview without production deployment
+## Enable the GitHub Pages development preview
 
-The proposed dedicated repository is **`Cecichencc/shan-hai`** (not created yet). The linked GitHub connector can write to repositories but does not have the create-repository action. To continue:
+The independent repository is **[Cecichencc/shan-hai](https://github.com/Cecichencc/shan-hai)**, currently **private**. Phase 0 source and tests are committed to `main`.
 
-1. Create an **empty public** repository named `shan-hai` under your GitHub account (do not initialize with README/gitignore). Share its link in ChatGPT.
-2. The source bundle can then be committed to the new repository using the connected GitHub tools. A public repo is needed for GitHub Pages on many plans; do not publish designs privately assumed to be secret.
-3. In **Settings → Pages**, choose **Source: GitHub Actions**.
-4. Push to `main` or `develop`. `.github/workflows/pages-preview.yml` installs dependencies, tests, builds, and deploys the Pages preview.
-5. Check the Actions logs and Pages URL. Expected default shape: `https://cecichencc.github.io/shan-hai/` **only once deployment is confirmed**, not a verified working URL now.
+1. In the GitHub repository, open **Settings → Pages** and set **Build and deployment → Source → GitHub Actions**.
+2. On the **Actions** tab, open **Shan Hai development preview**, then select **Run workflow** on the `main` branch if no successful deployment is shown.
+3. Wait for the workflow to install packages, run tests, build the Vite app, and deploy `dist/`. Open the link reported in the successful deployment.
 
-The workflow does **not** deploy to Vercel or any production project. Note: GitHub Pages is usually publicly accessible. For private playtesting, switch to an access-controlled host.
+**Privacy warning:** GitHub Pages websites are generally **public even when the source repository is private**. A private repository typically requires GitHub Pro or an eligible higher plan for Pages; GitHub Free requires a public repository. Do not change repository visibility or publish private assets without approval.
+
+The expected project-site address shape is `https://cecichencc.github.io/shan-hai/`, but it is **not a confirmed live URL** until GitHub Pages succeeds.
+
+The original three UI screenshot references remain available in the separate Phase 0 starter ZIP but have **not yet been uploaded as binary images into this repository**; code, executable standalone preview, test suite, specifications and CI workflow are present.
+
+No Vercel production deployment is configured or triggered.
 
 ## Folder overview
 
