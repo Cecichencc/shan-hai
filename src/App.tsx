@@ -94,35 +94,35 @@ export default function App() {
       <div className="world-art-fallback" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}fallback-world.webp)` }} aria-hidden="true" />
       {graphics !== 'unsupported' && graphics !== 'lost' && graphics !== 'error' && <SceneErrorBoundary onError={onSceneError}>
         <div className={`world-canvas ${playable ? 'world-canvas--ready' : ''}`}>
-          <ValleyScene move={movement} onNear={onNear} resetToken={resetToken} onReady={onFrameReady} paused={sheet !== null} />
+          <ValleyScene move={movement} onNear={onNear} resetToken={resetToken} onReady={onFrameReady} near={near} paused={sheet !== null} />
         </div>
       </SceneErrorBoundary>}
     </div>
     <div className="game-vignette" aria-hidden="true" />
     <header className="game-header">
       <div className="brand"><span className="brand-cloud">☁</span><div><div className="brand-cn">山海经</div><div className="brand-en">SHAN HAI · DANCING VALLEY</div></div></div>
-      <span className="phase-label">PHASE 2<br/>3D MODELS</span>
+      <span className="region-label">天山 · Dancing Valley</span>
     </header>
-    <aside className="quest"><small>✿ FIRST JOURNEY</small><strong>Find 帝江 · Dijiang</strong><span>Follow the stone path to the dancing spirit.</span></aside>
+    <aside className="quest"><small>✿ FIRST JOURNEY</small><strong>Meet 帝江 · Dijiang</strong><span>Across the bridge, a little spirit waits.</span></aside>
     {!playable && <div className="graphics-status" role="status">{statusText}</div>}
     {playable && <>
       <div className="game-bottom">
         <div ref={pad} className="movement-pad" role="application" aria-label="Touch joystick for walking"
           onPointerDown={e => { e.currentTarget.setPointerCapture(e.pointerId); updatePad(e); }}
           onPointerMove={e => { if (e.currentTarget.hasPointerCapture(e.pointerId)) updatePad(e); }}
-          onPointerUp={resetPad} onPointerCancel={resetPad}><div className="movement-knob" /></div>
+          onPointerUp={resetPad} onPointerCancel={resetPad} onLostPointerCapture={resetPad}><div className="movement-knob" /></div>
         <div className="game-actions">
           <button className="ghost-action" onClick={() => setSheet('map')}>☷ Map</button>
-          <button className="ghost-action" onClick={() => { setResetToken(n => n + 1); setNear(false); resetPad(); }}>↺ Start</button>
+          <button className="ghost-action" onClick={() => { setResetToken(n => n + 1); setNear(false); resetPad(); (document.activeElement as HTMLElement | null)?.blur(); }}>↺ Restart</button>
           {near && <button className="meet-action" onClick={() => setSheet('encounter')}>✦ Meet 帝江</button>}
         </div>
       </div>
       <div className="keyboard-hint">{near ? 'You found 帝江! Tap Meet or press E' : 'WASD / arrow keys to move · E to interact'}</div>
     </>}
     {sheet && <div className="dialog-backdrop" onClick={() => setSheet(null)}><section className="dialog-card" role="dialog" aria-modal="true" aria-label={sheet === 'map' ? 'World map' : 'Dijiang encounter'} onClick={e => e.stopPropagation()}>
-      {sheet === 'encounter' && <><span className="dialog-mark">✦</span><h2>You found 帝江!</h2><p>Meet the real 3D 帝江 model: <strong>six short legs</strong>, <strong>four animated wings</strong>, and a completely faceless fluffy body.</p><p className="muted">The battle system comes next. This build focuses on a fully modeled 3D encounter and walkable valley.</p></>}
-      {sheet === 'map' && <><span className="dialog-mark">◈</span><h2>World map</h2><p><strong>天山 · Dancing Valley</strong><br />The first explorable region.</p><p className="muted">The remaining regions will unlock in future builds.</p></>}
-      <button className="dialog-close" onClick={() => setSheet(null)}>Continue exploring</button>
+      {sheet === 'encounter' && <><span className="dialog-mark">✦</span><h2>帝江 · Dijiang</h2><p>Four little wings stir the air. 帝江 rocks from foot to foot, inviting you into its gentle dance.</p><p className="muted">For a moment, the whole garden seems to move to the same rhythm.</p></>}
+      {sheet === 'map' && <><span className="dialog-mark">◈</span><h2>World map</h2><p><strong>天山 · Dancing Valley</strong><br />The first explorable region.</p><p className="muted">Follow the peach trees to the stone bridge. Dijiang rests in the clearing beyond.</p></>}
+      <button className="dialog-close" onClick={() => { setSheet(null); (document.activeElement as HTMLElement | null)?.blur(); }}>Continue exploring</button>
     </section></div>}
   </main>;
 }

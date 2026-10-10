@@ -49,7 +49,7 @@ function importGLB(data64){
       for(let j=0;j<norm.length;j+=3){let len=Math.hypot(norm[j],norm[j+1],norm[j+2])||1;for(let k=0;k<3;k++)norm[j+k]/=len;}
     }
     const material=json.materials[pr.material]?.pbrMetallicRoughness?.baseColorFactor||[1,1,1,1];
-    return {mesh:makeMesh(pos,norm,indices),color:material.slice(0,3)};
+    return {mesh:makeMesh(pos,norm,indices),color:material.slice(0,3).map(v=>v<=.0031308?v*12.92:1.055*Math.pow(v,1/2.4)-.055)};
   }));
   return {json,meshes};
 }
@@ -114,5 +114,5 @@ source=source.replace('PHASE 1 · MOBILE', 'PHASE 2 · REAL 3D')
 source=source.replace('The next phase will add', 'Later phases will add')
 (root/'preview/index.html').write_text(source,'utf-8')
 (root/'public/phase2-preview.html').write_text(source,'utf-8')
-Path('/mnt/data/shan-hai-phase2-preview.html').write_text(source,'utf-8')
+
 print('Standalone preview',len(source),'characters embedded as GLB',len(modelA),len(modelB))

@@ -15,7 +15,7 @@ description: Continue, debug, review, or extend Chen Chen's Shan Hai (山海经)
 - Keep this project separate from Wonderland and Kitchen Garden.
 - Build true, walkable 3D geometry with React, TypeScript, Vite, Three.js, and React Three Fiber. Use the existing architecture before introducing dependencies or a backend.
 - Use simple rounded toy-like forms, pastel matte materials, cream surfaces, aqua water, peach blossoms, gentle lighting, and simplified Chinese curved-roof architecture. Use approved images as visual references; never present a scenery image as evidence of working gameplay.
-- Preserve the traveler: short brown hair without a bun, plain white T-shirt, dark shorts, sneakers, modest crossbody bag.
+- Preserve the traveler: short brown hair without a bun, plain white T-shirt, dark shorts, sneakers, and no bag or strap (user-approved simplification on 10 October 2026).
 - Preserve Dijiang: one round cream body, exactly six short independent legs, four distinct orange/gold wings, and no eyes, nose, mouth, ears, brows, or whiskers. Avoid feline paws.
 - Use the actual Phase 2 pivot names in `docs/ASSET_PIPELINE_PHASE2.md`, checked against the GLB and loader. Older model-name proposals differ.
 - Keep English as the default and structure new strings for Simplified Chinese localization.

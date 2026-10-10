@@ -12,3 +12,15 @@
 .game-header,.quest{z-index:4}
 .game-bottom,.keyboard-hint{z-index:5}
 .dialog-backdrop{z-index:12}
+
+/* Approved compact garden: quiet cream controls keep the scene in view. */
+.game-header{padding:18px 24px;align-items:center}
+.brand{border-radius:16px;padding:10px 15px;box-shadow:0 3px 15px #456b4320;background:#fffdf3ec}
+.brand-cn{font-size:23px;letter-spacing:2px}.brand-en{font-size:8px;letter-spacing:1.4px}
+.brand-cloud{font-size:24px}.region-label{background:#fffdf0de;color:#567b65;border-radius:24px;padding:10px 15px;font-size:11px;font-weight:650}
+.quest{top:102px;left:24px;max-width:211px;border-radius:14px;padding:11px 14px;box-shadow:0 3px 16px #456b431a;background:#fffdf0e8}
+.quest small{font-size:8px;letter-spacing:1.3px}.quest strong{font-size:13px}.quest span{font-size:10px}
+.game-bottom{padding:0 24px;bottom:max(20px,env(safe-area-inset-bottom))}.movement-pad{width:96px;height:96px;border-width:1px;background:#fffef050;box-shadow:0 2px 16px #52734c24;backdrop-filter:none}
+.ghost-action,.meet-action{border-radius:22px;padding:12px 17px;font-size:12px;box-shadow:0 3px 14px #47754a26}
+.keyboard-hint{font-size:10px;font-weight:500;background:#fffdf0ba;padding:7px 12px;bottom:23px;color:#567760}
+@media(max-width:720px){.game-header{padding:14px}.brand{padding:8px 12px}.brand-cn{font-size:20px}.brand-en{font-size:7px}.region-label{display:none}.quest{top:88px;left:14px;max-width:190px;padding:8px 11px}.quest strong{font-size:12px}.quest span{font-size:9px}.game-bottom{padding:0 14px;gap:6px}.movement-pad{width:85px;height:85px;flex-shrink:0}.game-actions{gap:5px;flex-wrap:wrap;justify-content:flex-end;max-width:230px}.ghost-action,.meet-action{font-size:11px;padding:11px 13px}.meet-action{order:-1}.keyboard-hint{display:none}.dialog-card{padding:20px 22px}}

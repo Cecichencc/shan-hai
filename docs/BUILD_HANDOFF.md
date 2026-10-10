@@ -1,51 +1,26 @@
 # Shan Hai build handoff — 10 October 2026
 
-## Source of requirements
+## Requirements and current direction
 
-Recovered the project direction from the conversation “Generate 帝江 Visual” and the current repository specifications. The complete later master Codex prompt was not retrievable, so this handoff does not claim to reproduce it.
+The complete original text prompt was not retrievable. Current repository specifications and explicit conversation decisions govern this work. Use `.agents/skills/build-shan-hai/SKILL.md`; root AGENTS.md routes future tasks to it.
 
-Use the project skill at `.agents/skills/build-shan-hai/SKILL.md`. It preserves the locked appearance, real-3D requirement, repository architecture, phase boundaries, and verification gates. Root `AGENTS.md` routes future work to the skill.
+The user approved the second simplified garden concept on 10 October and requested removal of the traveler’s bag. The garden rebuild implements compact scenery, a cream arched bridge, pastel trees, simple teal pavilion, moon gate, smoother characters, elevated camera and real shadows. The traveler has no bag or strap. Dijiang retains one faceless cream body, six legs and four orange/gold wings.
 
-## Confirmed baseline
+## Review hosting
 
-Development commit: [5e4f731](https://github.com/Cecichencc/shan-hai/commit/5e4f731a0d6ab57a1a642c84140b9bf52bba9184).
+The user made `Cecichencc/shan-hai` public and explicitly authorized the `develop` branch for the GitHub Pages environment. The live development review is https://cecichencc.github.io/shan-hai/. The deployment before this visual rebuild passed in Actions run 38050232705; browser rendering, movement, Map, restart and console were checked. Prior claims that the repository remains private or Pages is unavailable are superseded. No Vercel production deployment is authorized.
 
-- Phase 2 includes Dijiang and traveler GLBs, a React Three Fiber valley, movement, river/bridge collision logic, follow camera, proximity interaction, Map, restart, and fallback handling.
-- Dijiang: one round faceless cream body, six short legs, four orange/gold wings.
-- Traveler: short hair without a bun, white T-shirt, dark shorts, sneakers, crossbody bag.
-- Visual direction: rounded pastel toy-like 3D with simplified Chinese architecture.
-- The standalone HTML uses the same GLBs but earlier, less detailed scenery. It is not a full substitute for reviewing the React app.
-- Battle, recruitment, collection, and saving are not implemented in this milestone. Starter selection and defeat persistence remain proposals.
+## Garden rebuild verification
 
-## Verification evidence
+Local checks: 14 tests pass, including GLB anatomy/size, bag removal, the sampled spawn-to-Dijiang route, river boundaries, bridge elevation, moon-gate opening and fallback handling. TypeScript syntax parsing passes. The hosted workflow runs dependency installation, the full tests, TypeScript checking, Vite build and Pages deployment. Record the final hosted visual/playthrough evidence after it completes.
 
-[GitHub Actions run 38018277174](https://github.com/Cecichencc/shan-hai/actions/runs/38018277174), for the baseline commit:
+The standalone HTML embeds the updated character assets but retains earlier procedural scenery. Use the React app for the approved garden review.
 
-| Check | Result |
-| --- | --- |
-| Dependency installation | Passed |
-| Existing tests | 10 passed, 0 failed |
-| TypeScript and Vite build | Passed |
-| GitHub Pages configuration | Failed: Pages site Not Found |
-| Hosted deployment | Skipped |
+## Remaining milestone gates
 
-The repository is private. No repository visibility, hosting access, or production settings were changed. Do not assume a GitHub Pages URL is live. Older README/phase-review claims that the repository does not exist or compilation has never passed are superseded by this evidence.
+- Review the newly deployed garden in the browser, including bridge crossing, Meet, Map and restart.
+- Check narrow-screen controls and touch release/cancellation.
+- Test on an actual iPhone in Safari; record device/browser, loading, responsiveness and sustained rendering. A desktop viewport simulation does not satisfy this gate.
+- Combat, recruitment, collection and saving are outside this milestone. Starter selection and defeat persistence remain proposals.
 
-A graphical playthrough was attempted on 10 October 2026. The local environment rejected opening a listening server, and the browser's security policy rejected local `file:` URLs. No workaround or security change was attempted. Neither actual WebGL playability nor iPhone Safari performance was verified in this session.
-
-## Next justified milestone
-
-Finish Phase 2 verification using an authorized hosted development URL or a user-run local server:
-
-1. Load the actual React app and confirm the models render.
-2. Walk from spawn to Dijiang; check stream boundaries, bridge crossing, level bounds, camera, Meet, close, restart, Map, and paused movement.
-3. Check narrow-screen layout, touch joystick release/cancellation, safe areas, and action-button access.
-4. Test on an actual iPhone in Safari; record device, browser, load behavior, responsiveness, and sustained rendering.
-5. Inspect Dijiang from multiple angles and refine its gait, four-wing silhouette, materials, and scene staging against approved references.
-6. Advance to combat only after the visual/movement gate is met and unresolved gameplay choices are resolved.
-
-## Skill verification
-
-The Skill Creator initializer generated the skill structure and UI metadata. The standard Python validator could not run because PyYAML was unavailable; equivalent frontmatter/name/description, UI metadata, placeholder, and reference checks passed with the installed js-yaml parser. An independent read-only application of the skill selected Phase 2 verification and preserved the unresolved decisions.
-
-This handoff changes project guidance only. It does not represent a new game build or a completed device test.
+The model generator uses Python standard library only. Generated GLBs and standalone preview remain committed alongside source. The project skill was updated to preserve the approved removal of the bag.

@@ -14,7 +14,7 @@
 
 ### Traveler design contract
 
-- Short hair without a bun; plain white T-shirt, dark shorts and trainers; small crossbody bag.
+- Short hair without a bun; plain white T-shirt, dark shorts and trainers; no bag or strap.
 - Movement pivots `Leg_L`, `Leg_R`, `Arm_L`, `Arm_R`.
 
 ## Engine conventions
@@ -30,12 +30,13 @@
 From the project root:
 
 ```bash
-python -m pip install trimesh numpy
-python tools/generate_models.py
-python tools/make_standalone_preview.py
+python3 tools/generate_models.py
+python3 tools/make_standalone_preview.py
 npm install
 npm test
 npm run build
 ```
 
-Next art iteration: fewer tiled fur lumps and more unified tuft surfaces, wider four-wing silhouettes, six-leg gait easing, palette tuning to match approved soft-pastel Chinese game illustration.
+The generator uses only the Python standard library. The approved 10 October rebuild uses a unified cream body with subtle hem tufts, four broad feather wings, and a simple traveler without a bag. GLTF material factors are linearized from the sRGB palette. The standalone loader converts them back for its custom shader.
+
+Current exports: Dijiang 58 meshes / 429,320 bytes; traveler 26 meshes / 198,644 bytes. The standalone preview retains earlier procedural scenery and is only a character/compatibility preview; review the new garden in the React app.

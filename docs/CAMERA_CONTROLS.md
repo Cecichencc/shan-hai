@@ -1,18 +1,11 @@
-# Camera and movement — Phase 0
+# Camera and movement — garden review
 
-## Exploration camera
-An elevated, three-quarter follow camera at roughly `(player.x+13, 12, player.z+19)` looking near `(player.x, 1.4, player.z-9)`; follows smoothly rather than snapping. Landscape should be readable as three-dimensional geometry with the path visible in front.
+An elevated three-quarter perspective camera follows a smoothed focus ahead of the traveler. Desktop offset from the focus is `(9.5, 21, 24)`, vertical field of view 37 degrees. Narrow screens use `(5.5, 22, 23)` to keep the route readable. The compact garden centers on the arched bridge, with Dijiang beyond it.
 
-Future encounter mode zooms toward 帝江 while the traveler/companion remain visible. Inspection mode uses a separate white background and 360-degree orbit. Neither is active in Phase 0.
+- WASD / arrows: world-axis movement; Shift: faster movement.
+- E / Meet: interact near Dijiang; Esc: close modal.
+- Touch joystick: lower left; releasing, losing capture, or changing window focus clears movement.
+- Map gives the route; Restart restores spawn and camera.
+- Dialogs pause walking. Water, trees, rocks, pavilion and garden limits block movement; the bridge and moon-gate opening remain traversable.
 
-## Inputs
-- WASD / arrows = movement along world x/z plane.
-- Shift = faster movement (React version); E = interact near 帝江.
-- Esc = close modal.
-- Mobile virtual joystick lower left; encounter action appears at proximity.
-- Restart restores player's initial spawn.
-
-Touch targets ≥44px, safe-area-inset padding and no hover-only interactions. Prevent browser arrow-key scrolling when gameplay is active. Tap buttons should not block the joystick.
-
-## Future Phase 1 controls
-Add obstruction-aware camera and optionally drag-to-orbit. Determine whether walking should be camera-relative after user testing. Add collider constraints and water boundaries.
+`src/game/world-layout.ts` defines scenery placement, collision and bridge height together. Tests sample the complete spawn-to-Dijiang route. Keyboard and narrow-screen browser checks supplement, but do not replace, an actual iPhone Safari test. Combat remains outside this milestone.

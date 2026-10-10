@@ -8,15 +8,19 @@ import { terrainHeight } from './WorldObjects';
 /** Production-format, independently animated GLB model. Six articulated legs, four wings, no facial features. */
 export default function Dijiang({ close = false }: { close?: boolean }) {
   const { scene } = useGLTF(`${import.meta.env.BASE_URL}models/dijiang.glb`);
-  const model = useMemo(() => scene.clone(true), [scene]);
+  const model = useMemo(() => (() => {
+    const copy = scene.clone(true);
+    copy.traverse(object => { if (object instanceof THREE.Mesh) { object.castShadow = true; object.receiveShadow = true; } });
+    return copy;
+  })(), [scene]);
   const parent = useRef<THREE.Group>(null);
   const wings = useMemo(() => ['Wing_L_Upper', 'Wing_R_Upper', 'Wing_L_Lower', 'Wing_R_Lower'].map(n => model.getObjectByName(n)), [model]);
   const legs = useMemo(() => ['Leg_L_1', 'Leg_R_1', 'Leg_L_2', 'Leg_R_2', 'Leg_L_3', 'Leg_R_3'].map(n => model.getObjectByName(n)), [model]);
-  useFrame(({ clock }, dt) => {
+  useFrame(({ clock }) => {
     const t = clock.getElapsedTime(), excitement = close ? 1 : .36;
     if(parent.current) {
       parent.current.position.y = terrainHeight(REGION.dijiang[0],REGION.dijiang[2]) + Math.sin(t*1.6)*.065 + (close ? Math.max(0,Math.sin(t*4.8))*.11 : 0);
-      parent.current.rotation.y += dt*.11;
+      parent.current.rotation.y = -.18 + Math.sin(t * .42) * .11;
     }
     wings.forEach((wing, i) => {
       if (!wing) return;

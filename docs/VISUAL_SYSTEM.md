@@ -1,38 +1,20 @@
-# Visual system — simple, bright, playful
+# Visual system — approved garden direction
 
-## Approved direction
-Pastel toy-like **true 3D** (not flattened painted scenery): chunky rounded forms, bright sky, saturated aqua water, mint/leaf greens, peach blossoms, cream UI surfaces, gentle diffuse light and almost no outline. Key scenery modules: rounded trees, puffy petals, river, stone arch bridge, Chinese pavilion/gate with curved roof accents, layered hills and distant waterfalls.
+On 10 October 2026, the user approved the second simplified 3D garden concept and removed the traveler’s bag. Use this as the current direction: a compact, softly lit pastel garden with readable rounded silhouettes, a cream arched bridge, aqua stream, pink and green canopy clusters, a simple teal pavilion roof, and a cream moon gate. The concept is a target, not evidence of runtime fidelity or device performance.
 
-The build should be simpler than the concept images: no high-poly roof carving, heavy bloom, hair simulation, individual 3D leaves or simulated cloth.
+The real React Three Fiber scene uses reusable geometry, a single shadow-casting sun, matte surfaces, clustered flowers and bushes, and low-detail hills. No individual leaf meshes, fur simulation, ornate roof carving, waterfalls, or heavy bloom are required for this approved scene.
 
-## Color tokens (first-pass, not final calibrated values)
-| Token | Color | Use |
-|---|---|---|
-| Leaf Green | `#7ABB70` | round canopies |
-| Meadow | `#A5D783` | grassy ground |
-| Aqua | `#74CBD9` | rivers |
-| Sky | `#9DDFFA` | background |
-| Blossom | `#F4A7C1` | pink trees and flowers |
-| Cream | `#FFF0DB` | cards and creature body |
-| Cinnabar | `#EC8D69` | Dijiang body detail |
-| Wing Gold | `#FFC07F` | wing tips |
-| Roof Teal | `#48727C` | Chinese pavilion |
-| Timber | `#C08A69` | pavilion columns |
-| Ink | `#31584C` | UI text |
+| Element | Colour |
+| --- | --- |
+| Grass | `#b3cf80` |
+| Water | `#49bdc8` |
+| Sky | `#c1e8ed` |
+| Blossom | `#f3a9af`, `#ffc5ba` |
+| Canopies | `#86b552`, `#a4c96b` |
+| Path | `#efd299` |
+| Pavilion roof | `#498e91` |
+| Timber | `#b76d4e` |
 
-## Level assets (Phase 1 art kit)
-- Rounded canopy trees: 3 sizes, 2 palettes, shared geometry and instancing.
-- Peach/blossom trees: 2 silhouettes from shared trunk/canopy primitives.
-- Grass: 2 rolling hill meshes + continuous traversable base.
-- Flowers: 2 puffy petal types + low-detail stems; instanced clusters.
-- River: single shallow ribbon and banks, low-cost shimmer.
-- Stone bridge: 1 modular walkable bridge with simple rails.
-- Pavilion: 1 low-detail curved roof module, 4 repeating wooden columns, floor.
-- Lantern: 1 shared sculpted form.
-- Rocks: 3 types reused at different scales/orientations.
+Dijiang has one smooth faceless cream body, subtle hem tufts, six independent short legs with coral hoof ends, and exactly four orange/gold wings. The traveler has short brown hair, a white tee, dark shorts and sneakers, with no bag or strap.
 
-## UI treatment
-Warm cream cards, round corners ~16–24px, soft shadows, ocean/leaf typography, pink/cinnabar for interaction highlights. Avoid permanent full-height overlays on gameplay. Language content: translation keys, English default, Simplified Chinese later.
-
-## Source reference images
-`design/references/01-mvp-screen-flow.jpg`, `02-battle-collection.jpg`, `03-ui-kit.jpg` — user-provided visual exploration. Do not mistake any screenshot for finished game UI or exact gameplay spec.
+UI stays compact: warm cream surfaces, rounded controls, bilingual destination names and concise English instructions. Large overlays appear only for Map and Meet. Localization to zh-CN remains a later task.
