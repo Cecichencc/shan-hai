@@ -94,14 +94,14 @@ export default function App() {
       <div className="world-art-fallback" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}fallback-world.webp)` }} aria-hidden="true" />
       {graphics !== 'unsupported' && graphics !== 'lost' && graphics !== 'error' && <SceneErrorBoundary onError={onSceneError}>
         <div className={`world-canvas ${playable ? 'world-canvas--ready' : ''}`}>
-          <ValleyScene move={movement} onNear={onNear} resetToken={resetToken} onReady={onFrameReady} />
+          <ValleyScene move={movement} onNear={onNear} resetToken={resetToken} onReady={onFrameReady} paused={sheet !== null} />
         </div>
       </SceneErrorBoundary>}
     </div>
     <div className="game-vignette" aria-hidden="true" />
     <header className="game-header">
       <div className="brand"><span className="brand-cloud">☁</span><div><div className="brand-cn">山海经</div><div className="brand-en">SHAN HAI · DANCING VALLEY</div></div></div>
-      <span className="phase-label">PHASE 1<br/>MOBILE PREVIEW</span>
+      <span className="phase-label">PHASE 2<br/>3D MODELS</span>
     </header>
     <aside className="quest"><small>✿ FIRST JOURNEY</small><strong>Find 帝江 · Dijiang</strong><span>Follow the stone path to the dancing spirit.</span></aside>
     {!playable && <div className="graphics-status" role="status">{statusText}</div>}
@@ -117,10 +117,10 @@ export default function App() {
           {near && <button className="meet-action" onClick={() => setSheet('encounter')}>✦ Meet 帝江</button>}
         </div>
       </div>
-      <div className="keyboard-hint">{near ? 'You found 帝江! Press E or tap Meet' : 'WASD / arrow keys to move · E to interact'}</div>
+      <div className="keyboard-hint">{near ? 'You found 帝江! Tap Meet or press E' : 'WASD / arrow keys to move · E to interact'}</div>
     </>}
     {sheet && <div className="dialog-backdrop" onClick={() => setSheet(null)}><section className="dialog-card" role="dialog" aria-modal="true" aria-label={sheet === 'map' ? 'World map' : 'Dijiang encounter'} onClick={e => e.stopPropagation()}>
-      {sheet === 'encounter' && <><span className="dialog-mark">✦</span><h2>You found 帝江!</h2><p>A mythical dancing spirit with <strong>six short legs</strong>, <strong>four wings</strong>, and no facial features.</p><p className="muted">Combat and collection are still on the roadmap. This preview tests the environment and encounter.</p></>}
+      {sheet === 'encounter' && <><span className="dialog-mark">✦</span><h2>You found 帝江!</h2><p>Meet the real 3D 帝江 model: <strong>six short legs</strong>, <strong>four animated wings</strong>, and a completely faceless fluffy body.</p><p className="muted">The battle system comes next. This build focuses on a fully modeled 3D encounter and walkable valley.</p></>}
       {sheet === 'map' && <><span className="dialog-mark">◈</span><h2>World map</h2><p><strong>天山 · Dancing Valley</strong><br />The first explorable region.</p><p className="muted">The remaining regions will unlock in future builds.</p></>}
       <button className="dialog-close" onClick={() => setSheet(null)}>Continue exploring</button>
     </section></div>}

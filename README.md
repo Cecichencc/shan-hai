@@ -1,3 +1,7 @@
+# Phase 2: actual 3D models and encounter scene
+
+**Current development branch:** `develop`. This build introduces reproducible GLB models and a redesigned walkable valley. It is not the final artwork or combat game. See [Phase 2 review](PHASE2_REVIEW.md) and [asset pipeline](docs/ASSET_PIPELINE_PHASE2.md).
+
 # 山海经 — SHAN HAI
 
 **Phase 0–1 · Independent 3D web-game foundation**  

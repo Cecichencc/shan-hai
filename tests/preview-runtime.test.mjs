@@ -20,7 +20,7 @@ test('standalone WebGL scene initializes and draws without JS runtime exceptions
   },{get:(o,k)=>k in o?o[k]:noop});
   const objects={};const element=id=>objects[id]??=(id==='scene'?{getContext:()=>gl,width:0,height:0,style:{},addEventListener:noop}:{style:{setProperty:noop},classList:{classes:new Set(),add(k){this.classes.add(k)},remove(k){this.classes.delete(k)},toggle(k,on){if(on)this.classes.add(k);else this.classes.delete(k)}},addEventListener:noop,textContent:'',getBoundingClientRect:()=>({left:0,top:0,width:100,height:100})});
   const body={classList:{classes:new Set(),add(k){this.classes.add(k)},remove(k){this.classes.delete(k)},contains(k){return this.classes.has(k)}}};
-  const ctx={document:{body,getElementById:element},window:{devicePixelRatio:1,setTimeout:()=>1,addEventListener:(name,fn)=>{handlers[name]=fn}},innerWidth:1200,innerHeight:850,performance:{now:()=>0},requestAnimationFrame:(cb)=>{frame=cb},Math,Float32Array,Uint16Array,console};
+  const ctx={document:{body,getElementById:element},window:{devicePixelRatio:1,setTimeout:()=>1,addEventListener:(name,fn)=>{handlers[name]=fn}},innerWidth:1200,innerHeight:850,performance:{now:()=>0},atob:(s)=>Buffer.from(s,'base64').toString('binary'),TextDecoder,Uint8Array,DataView,requestAnimationFrame:(cb)=>{frame=cb},Math,Float32Array,Uint16Array,console};
   vm.runInNewContext(inline,ctx,{timeout:10000});
   for(let i=1;i<=5;i++){const f=frame;frame=undefined;f(i*16);}
   assert.ok(draws>200,'expected multiple visible mesh draw calls');
